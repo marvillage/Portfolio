@@ -10,6 +10,12 @@ import { ContactForm } from "@/components/contact-form"
 import { CodolioStats } from "@/components/codolio-stats"
 import { Timeline } from "@/components/timeline"
 import { AchievementCard } from "@/components/achievement-card"
+import { AnimatedBackground } from "@/components/animated-background"
+import { TypewriterText } from "@/components/typewriter-text"
+import { HeroSection } from "@/components/hero-section"
+import dynamic from "next/dynamic"
+
+const SpaceScene3D = dynamic(() => import("@/components/space-scene-3d").then(mod => mod.SpaceScene3D), { ssr: false })
 
 export default function Home() {
   return (
@@ -54,35 +60,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center pt-20 relative">
-        <div className="container mx-auto px-4 z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-white">Kushagra</span> <span className="text-[#ff004c]">Srivastava</span>
-            </h1>
-            <h2 className="text-2xl md:text-3xl mb-8 text-[#00cfff] font-light">
-              Space Coder. AI Builder. Full Stack Adventurer.
-            </h2>
-            <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-[#ff004c] hover:bg-[#ff004c]/80 text-white">
-                <Link href="#projects">View Projects</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-[#00cfff] text-[#00cfff] hover:bg-[#00cfff] hover:text-black"
-              >
-                <a href="https://tinyurl.com/yc4b24cr" target="_blank" rel="noopener noreferrer">
-                  <Download className="mr-2 h-4 w-4" />
-                  Download Resume
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Codolio Stats */}
       <section id="stats" className="py-20 relative">
